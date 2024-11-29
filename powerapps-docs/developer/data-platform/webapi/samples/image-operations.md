@@ -2,8 +2,8 @@
 title: "Sample: Image Operations using Dataverse Web API (Microsoft Dataverse) | Microsoft Learn" # Intent and product brand in a unique string of 43-59 chars including spaces
 description: "This sample demonstrates how to perform operations with image columns using the Dataverse Web API." # 115-145 characters including spaces. This abstract displays in the search result.
 ms.date: 01/11/2023
-author: NHelgren
-ms.author: nhelgren
+author: mkannapiran
+ms.author: kamanick
 ms.reviewer: jdaly
 ms.topic: sample
 search.audienceType:
@@ -202,7 +202,7 @@ To leave the system in the state before the sample ran, the program does the fol
 ### See Also
 
 [Use image column data](../../image-column-data.md)<br />
-[Image columns](../../image-attributes.md)<br />
+[Work with image column definitions using code](../../image-attributes.md)<br />
 [Use file column data](../../file-column-data.md)<br />
 [Sample: Image Operations using Dataverse SDK for .NET](../../org-service/samples/set-retrieve-entity-images.md)
 

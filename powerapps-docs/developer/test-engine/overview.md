@@ -1,13 +1,15 @@
 ---
 title: Power Apps Test Engine overview (preview)
 description: Learn about how you can automate tests of standalone canvas apps using the Power Apps Test Engine within Power Platform CLI.
-author: jt000
-ms.author: jasontre
-ms.date: 08/16/2023
+author: pvillads
+ms.author: pvillads
+ms.date: 05/14/2024
 ms.reviewer: jdaly
 ms.topic: article
 contributors:
  - JimDaly
+ - jt000
+ - FrankDahl
 ---
 
 
@@ -17,7 +19,7 @@ contributors:
 
 Power Apps Test Engine is a component within the Power Platform CLI (PAC CLI) used for testing standalone canvas apps in Power Apps. You must [Install Microsoft Power Platform CLI](/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli) to use the Test Engine.
 
-[!INCLUDE [preview-note](../../../shared/preview-includes/preview-note.md)]
+[!INCLUDE [preview-note](../../../shared/preview-includes/preview-note-pp.md)]
 
 ## Benefits
 
@@ -104,6 +106,7 @@ The following are known limitations when working with Power Apps Test Engine.
 
 - Multi-factor authentication isn't supported. Use an account that requires only a username and password to run your tests.
 - Browser locale will follow your browser's default settings
+- [Modern Controls (preview)](../../maker/canvas-apps/controls/modern-controls/overview-modern-controls.md) are currently not supported
 
 ### Supported Browsers
 
@@ -156,7 +159,8 @@ If you move an app that is _not_ part of a solution to a new environment, you'll
 
 ### See also
 
+[Power Apps Test Engine release notes](https://github.com/microsoft/PowerApps-TestEngine/releases)   
 [Power Apps Test Engine YAML format (preview)](yaml.md)   
-[Power Apps Test Engine Power Fx functions (preview)](powerfx.md)   
+[Power Apps Test Engine Power Fx functions (preview)](powerfx.md)
 
 [!INCLUDE [footer-banner](../../includes/footer-banner.md)]

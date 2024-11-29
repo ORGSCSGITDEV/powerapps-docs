@@ -1,5 +1,5 @@
 ---
-title: Overview of Hospital Emergency Response sample solution for Power Platform (contains video) | Microsoft Docs
+title: Overview of Hospital Emergency Response sample solution for Power Platform | Microsoft Docs
 description: Provides an overview of Hospital Emergency Response Solution.
 author: pankajarora-msft
 
@@ -8,7 +8,7 @@ ms.custom:
 ms.date: 04/23/2020
 ms.subservice: sample-apps
 ms.author: pankar
-ms.reviewer: kvivek
+ms.reviewer: tapanm
 ---
 # Hospital Emergency Response - Power Platform sample solution
 

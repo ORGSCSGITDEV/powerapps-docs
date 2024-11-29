@@ -2,8 +2,8 @@
 title: "Web API Query Data sample (C#) (Microsoft Dataverse)| Microsoft Docs"
 description: "This sample demonstrates how to query data of Microsoft Dataverse entity instances, using the Dataverse Web API along with the WebApiService class."
 ms.date: 03/28/2023
-author: divkamath
-ms.author: dikamath
+author: MicroSri
+ms.author: sriknair
 ms.reviewer: jdaly
 search.audienceType:
   - developer
@@ -131,13 +131,13 @@ Operations: A reference to each record created in this sample was added to a lis
 
 ### See also
 
-[Query Data using the Web API](../query-data-web-api.md)  
+[Query Data using the Web API](../query/overview.md)  
 [Web API Query Data Sample](../web-api-query-data-sample.md)  
 [Use the Dataverse Web API](../overview.md)
 [Web API Basic Operations Sample (C#)](webapiservice-basic-operations.md)<br />
 [Web API Conditional Operations sample (C#)](webapiservice-conditional-operations.md)<br />
 [Web API Functions and Actions Sample (C#)](webapiservice-functions-and-actions.md)<br />
-[Web API Metadata Operations Sample (C#)](webapiservice-metadata-operations.md)<br />
+[Web API table schema operations sample (C#)](webapiservice-metadata-operations.md)<br />
 [Web API WebApiService Parallel Operations Sample (C#)](webapiservice-parallel-operations.md)<br />
 [Web API Parallel Operations with TPL Dataflow components Sample (C#)](webapiservice-tpl-dataflow-parallel-operations.md)<br />
 

@@ -93,22 +93,20 @@ To disable administration mode for an organization instance:
 
 ## Solution checker fails due to missing security roles
 
-The application user for solution checker requires two security roles assigned in order to provide the necessary privileges to communicate with the Dataverse organization. If either of these roles aren't assigned to the user **'Power Apps Checker'**,  attempts to run analysis, download results, and run cancellation will fail. This occurs most often when customers have automation in place that removes security roles from unexpected users. The following security roles contain minimum required permissions:
+The application user for solution checker requires the following security roles assigned in order to provide the necessary privileges to communicate with the Dataverse organization. If any of these roles aren't assigned to the user **'Power Apps Checker Application'**,  attempts to run analysis, download results, and run cancellation will fail. This occurs most often when customers have automation in place that removes security roles from unexpected users. The following security roles contain minimum required permissions:
 
-- Export customizations
-- Solution checker
+- Export Customizations (Solution Checker)
+- Service Writer
+- Solution Checker
 
 ### How to assign missing security roles
 
-To assign missing security roles to the Power Apps Checker user:
+To assign missing security roles to the Power Apps Checker Application user:
 
-1. Open your Dataverse organization and navigate to **Settings** > **Security** > **Users**.
-2. Select the **'Power Apps Checker'** user from the list of users.
-3. Select **MANAGE ROLES** on the command bar.
-4. Select **'Export Customizations'** and **'Solution Checker'** role checkboxes, and then select **OK**.
-
-![Required Security Roles.](media/solution-checker-required-roles.png)
-
+1. In the Power Platform admin center, navigate to your environment, then to **Users** > **app users list**.
+2. Select the **'Power Apps Checker Application'** user from the list of users.
+3. Select **Edit security roles** on the command bar.
+4. Select checkboxes for the roles listed above, and then select **Save**.
 5. Run solution checker again.
 
 ## Solution checker fails due to restricted access mode
@@ -181,17 +179,17 @@ Solution checker may fail due to the errors "ISV code aborted the operation" or 
 
 Common operations invoked by solution checker include Create and Update. These operations can occur on the following tables: Analysis Job, Analysis Component, or Analysis Result.
 
-## Solution checker fails due to disabled first-party application in Azure Active Directory
+## Solution checker fails due to disabled first-party application in Microsoft Entra ID
 
-The first-party enterprise application identity used by solution checker (PowerApps-Advisor) shouldn't be disabled in Azure Active Directory (Azure AD). If disabled, the identity can't authenticate when requesting bearer tokens for Dataverse and other required resource providers on-behalf of the requesting user.
+The first-party enterprise application identity used by solution checker (PowerApps-Advisor) shouldn't be disabled in Microsoft Entra ID. If disabled, the identity can't authenticate when requesting bearer tokens for Dataverse and other required resource providers on-behalf of the requesting user.
 
-Follow the below steps to verify that the application identity hasn't been disabled in Azure AD and if necessary enable the application.
+Follow the below steps to verify that the application identity hasn't been disabled in Microsoft Entra and if necessary enable the application.
 
 ### How to verify and/or modify application enabled status
 
 To verify and/or modify the enabled status of the PowerApps-Advisor enterprise application identity
 
-1. Access your tenant in the [Azure Active Directory (Azure AD) Portal](https://aad.portal.azure.com/).
+1. Access your tenant in the [Microsoft Entra Portal](https://entra.microsoft.com/#home).
 2. Navigate to **Enterprise Applications**.
 3. Select **All Application** and search for **'PowerApps-Advisor'**.
 
@@ -211,7 +209,7 @@ To verify and/or modify the enabled status of the PowerApps-Advisor enterprise a
 9. Run solution checker again.
 
 > [!IMPORTANT]
-> You must have administrator privileges in Azure Active Directory (AAD) in order to edit enterprise applications.
+> You must have administrator privileges in Microsoft Entra ID (Microsoft Entra ID) in order to edit enterprise applications.
 
 ## Solution checker fails to export solutions with draft business process flow components
 

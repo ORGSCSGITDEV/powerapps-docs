@@ -1,14 +1,14 @@
 ---
 title: "FAQ for Dataverse search | MicrosoftDocs"
 description: FAQ about Dataverse search
-author: sericks007
+author: shwetamurkute
 ms.component: pa-user
 ms.topic: conceptual
-ms.date: 08/02/2023
+ms.date: 06/13/2024
 ms.subservice: end-user
-ms.author: sericks
+ms.author: smurkute
 ms.custom: ""
-ms.reviewer: sericks
+ms.reviewer: smurkute
 ms.assetid: 
 search.audienceType: 
   - enduser
@@ -16,7 +16,8 @@ contributors:
 - mspilde
 - manish1604
 - prdeka
-- AnikaMD 
+- AnikaMD
+- JimDaly
 ---
 
 # Frequently asked questions about Dataverse search
@@ -27,9 +28,13 @@ Your administrator defines the scope of content that's searched. An administrato
 
 ![An example of search results on the Contacts tab.](media/search-faq-1.png "An example of search results on the Contacts tab") 
 
+## What are the Column Types that can be searched in Dataverse Search?
+
+The **Find Columns** on a **Quick Find View** define the searchable fields in the Dataverse search index. Text fields such as Single Line of Text and Multiple Lines of Text, Lookups, and Option Sets are searchable. **Find Columns** of all other data types such as Integer, Double are ignored. For more information, see [Select searchable fields and filters for each table](/power-platform/admin/configure-relevance-search-organization#select-searchable-fields-and-filters-for-each-table).
+
 ## Why am I not seeing search results from a table that is enabled for Dataverse search?
 
-If a table isn't part of the model-driven app, it's not included in search results. Use the Power Apps app designer to verify that the table is included in that app's components. For more information, see [Add or edit model-driven app components](../maker/model-driven-apps/add-edit-app-components.md#add-a-component).
+If a table isn't part of the model-driven app, it's not included in search results. Use the Power Apps app designer to verify that the table is included in that app's components. Make sure that the table has a default Quick Find View created and defined. A default Quick Find View is created with a table, but if it has been removed you need to select the Quick Find View you want and set as the default for your table. For more information, see [Add or edit model-driven app components](../maker/model-driven-apps/add-edit-app-components.md#add-a-component). 
 
 
 ## Can I configure quick actions to show or hide certain commands?
@@ -52,11 +57,11 @@ Currently, Dataverse search searches your data in Microsoft Dataverse only. Shar
 
 ## Why am I unable to view information for party list fields like To, From, and CC in full results?
 
-Party list fields are special fields that aren't searchable or viewable in the results page. 
+Party list fields are special fields. They're not supported in Dataverse search, nor are they included in the search results page.
 
-## How come returns don't support HTLM formatting for memo data types?
+## How come returns don't support HTML formatting for memo data types?
 
-Dataverse search doesn't return HTML formatting for memo types to optomize the UI experience.
+Dataverse search doesn't return HTML formatting for memo types to optimize the UI experience.
 
 ## Why columns aren't enabled for Dataverse search after adding to a quick find view?
 
@@ -103,6 +108,13 @@ When using the Dataverse search API, there's a throttling limit of one request p
 - MultiSelectPicklist
 - State
 - Status
+
+## How can I use the search API?
+
+[Developer's guide: Search for Dataverse records using the API](../developer/data-platform/search/overview.md)
+
+## Does Dataverse search support US Government clouds?
+Dataverse search strives to maintain functional parity between our commercially available services and those available through our US Government clouds. It's available in US Government Community Cloud (GCC) and US GCC High. It's not available in US Department of Defense (DoD).
 
 ### See also
 

@@ -1,8 +1,8 @@
 ---
 title: "Subgrid OnLoad event (Client API reference) in model-driven apps| MicrosoftDocs"
 description: Includes description and supported parameters for the subgrid OnLoad event.
-author: jasongre
-ms.author: jasongre
+author: fikaradz
+ms.author: fikaradz
 ms.date: 03/12/2022
 ms.reviewer: jdaly
 ms.topic: reference
@@ -21,7 +21,9 @@ This event occurs every time the subgrid refreshes. This includes when users sor
 Use the GridControl.addOnLoad and GridControl.removeOnLoad methods to manage event handlers, usually in the form Onload event. 
 
 
+## Related articles
 
-
+[Events (Client API reference)](../events.md)   
+[Events in forms and grids in model-driven apps](../../events-forms-grids.md)
 
 [!INCLUDE[footer-include](../../../../../includes/footer-banner.md)]

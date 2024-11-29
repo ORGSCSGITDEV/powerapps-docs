@@ -1,13 +1,15 @@
 ---
 title: FAQ for building apps and tables through conversation
 description: FAQ that discusses building apps through conversation and the key considerations for making use of this technology responsibly.
-ms.date: 6/16/2023
+ms.date: 9/24/2024
 ms.custom: 
   - responsible-ai-faqs
 ms.topic: article
 author: franklanmsft
 ms.author: franklan
 ms.reviewer: mduelae
+ms.collection: 
+    - bap-ai-copilot
 ---
 
 # FAQ for building apps and tables through conversation
@@ -26,32 +28,26 @@ Using Azure OpenAI service as a foundation, build apps through conversation cons
 
 ## What is the system’s intended use? 
 
-Build apps and tables through conversation is intended to simplify your app creation process by automatically generating a data table on which your app will be built. AI-generated content may have mistakes. Make sure it's accurate and appropriate before using it. For more information, read the full [preview terms](https://powerplatform.microsoft.com/en-us/legaldocs/supp-powerplatform-preview).
+Build apps and tables through conversation is intended to simplify your app creation process by automatically generating a data table on which your app will be built. AI-generated content may have mistakes. Make sure it's accurate and appropriate before using it. For more information, [read the full terms](https://go.microsoft.com/fwlink/?linkid=2182773).
 
 
 ## How was build apps and tables through conversation evaluated? What metrics are used to measure performance? 
 
-Build apps and tables through conversation underwent substantial testing before the feature was released in preview. If you encounter issues with the content being generated, please submit feedback. Your feedback will be used to improve Microsoft products and services. IT admins for your organization will be able to view and manage your feedback data. 
+Build apps and tables through conversation underwent substantial testing before the feature was released. If you encounter issues with the content being generated, please submit feedback. Your feedback will be used to improve Microsoft products and services. IT admins for your organization will be able to view and manage your feedback data. 
 
 For more information, see: [Data, privacy, and security for Azure OpenAI Service](/legal/cognitive-services/openai/data-privacy)
 
 ## What are the limitations of build apps and tables through conversation? How can users minimize the impact of the build apps through conversation limitations when using the system? 
 
-Preview features aren’t meant for production use and may have restricted functionality.These features are available before an official release so that customers can get early access and provide feedback. 
+This capability is in the process of rolling out, and may not be available in your region yet.
 
-This capability is in the process of rolling out, and may not be available in your region yet. 
+This capability may be subject to usage limits or capacity throttling.
 
-This capability may be subject to usage limits or capacity throttling. 
+The following are requirements to access this feature:
 
-The following are requirements to access the waitlist for this preview: 
-
-- Your environment must be in the United States region. 
-
-- Your account must have English (United States) as the browser language. 
+- Your account must have English (United States), French, German, Spanish, Dutch, Danish, Italian, Japanese, or Portuguese (Brazil) as the browser language.
 
 - Have a [Microsoft Dataverse database](/power-platform/admin/create-database) in your environment. 
-
-- Licensed customers will be prioritized for access. 
 
 - AI Builder must be enabled for your environment to use the AI models or controls leveraging AI models: 
 
@@ -61,7 +57,7 @@ The following are requirements to access the waitlist for this preview:
 
     3. On the **Features** settings page, under **AI Builder**, enable or disable **AI Builder preview models**. 
 
-For more information, see [AI Copilot overview](../canvas-apps/ai-overview.md) 
+For more information, see [Copilot in Power Apps overview](../canvas-apps/ai-overview.md) 
 
 ## What operational factors and settings allow for effective and responsible use of the system? 
 
@@ -80,7 +76,7 @@ Follow these procedures to make the most of the feature:
 
 ## See also
 
-- [Build apps through conversation (preview)](../canvas-apps/ai-conversations-create-app.md)
+- [Build apps through conversation](../canvas-apps/ai-conversations-create-app.md)
 
  
 [!INCLUDE[footer-include](../../includes/footer-banner.md)]

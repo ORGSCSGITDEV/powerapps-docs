@@ -2,7 +2,7 @@
 title: "Get started with Power Apps| MicrosoftDocs"
 description: How to navigate the Power Apps home page. 
 ms.custom: ""
-ms.date: 06/15/2023
+ms.date: 11/19/2024
 ms.reviewer: "mkaur"
 ms.topic: overview
 author: "mkaur"
@@ -14,8 +14,9 @@ contributors:
   - mduelae
   - alaug
   - Mattp123
+ms.collection: 
+    - bap-ai-copilot
 ---
-
 
 # Get started with Power Apps
 
@@ -33,7 +34,7 @@ Legend:
 1. [Left navigation pane](#1--left-navigation-pane)
 2. [Search](#2--search)
 3. [Environment information and settings](#3--environment-information-and-settings)
-4. [AI Copilot](#4---ai-copilot)
+4. [Copilot in Power Apps](#4---copilot-in-power-apps)
 5. [Build apps](#5--build-apps)
 6. [Get help from a virtual agent](#6--ask-a-virtual-agent)
 
@@ -145,9 +146,9 @@ In the header, select the question mark icon to find more information about eith
 
 You'll find links to documentation, Power Apps training on Microsoft Learn, the Power Apps Community (where you can share information with users in other organizations), and the Power Apps blog (where the newest features are announced).
 
-## 4 - AI Copilot
+## 4 - Copilot in Power Apps
 
-If your organization has [AI enabled (preview)](ai-overview.md) then you'll see AI assistant on the Power Apps Home screen. For more information, see [Build apps through conversation (preview)](ai-conversations-create-app.md).
+If your organization has [Copilot in Power Apps (preview)](ai-overview.md) enabled then you'll see Copilot assistant on the Power Apps Home screen. For more information, see [Build apps through conversation (preview)](ai-conversations-create-app.md).
 
 ## 5 – Build apps
 
@@ -155,7 +156,7 @@ Start building apps, which provide rich business logic and workflow capabilities
 
 To create an app, select from the following options:
 
-- **Start with data**: Lets you upload an [Excel file](get-started-create-from-data.md), build your own table, select a [Dataverse table](data-platform-create-app.md), or choose from external data source such as [SharePoint](app-from-sharepoint.md), [Excel](./connections/connection-excel.md), or [SQL](./connections/connection-azure-sqldatabase.md) to start building your app.
+- **Start with data**: Lets you upload an [Excel file](get-started-create-from-data.md), build your own table, select a [Dataverse table](data-platform-create-app.md), or choose from external data source such as [SharePoint](app-from-sharepoint.md), [Excel](./connections/connection-excel.md), or [SQL](./connections/sql-connection-overview.md) to start building your app.
   
   > [!NOTE]
   > If your organization has [AI enabled](ai-overview.md) then you'll see AI assistant when you select **Start with data**. For more information, see [Build apps through conversation](ai-conversations-create-app.md).

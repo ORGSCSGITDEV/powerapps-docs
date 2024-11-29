@@ -1,8 +1,8 @@
 ---
 title: "Grid OnChange event (Client API reference) in model-driven apps| MicrosoftDocs"
 description: Includes description and supported parameters for the grid OnChange event.
-author: jasongre
-ms.author: jasongre
+author: fikaradz
+ms.author: fikaradz
 ms.date: 03/12/2022
 ms.reviewer: jdaly
 ms.topic: reference
@@ -18,6 +18,9 @@ The `OnChange` event occurs when a value is changed in a cell in the editable gr
 
 
 
+### Related articles
 
+[Events (Client API reference)](../events.md)   
+[Events in forms and grids in model-driven apps](../../events-forms-grids.md)
 
 [!INCLUDE[footer-include](../../../../../includes/footer-banner.md)]

@@ -1,23 +1,22 @@
 ---
 title: Customize and build your mobile app using the wrap wizard
 description: Learn about how to use the wrap wizard to package canvas apps into a native mobile app package.
-author: makolomi
+author: komala2019
 ms.topic: article
 ms.custom: canvas
-ms.reviewer: mkaur
-ms.date: 2/9/2023
+ms.reviewer: smurkute
+ms.date: 6/13/2024
 ms.subservice: canvas-maker
-ms.author: makolomi
+ms.author: koagarwa
 search.audienceType: 
   - maker
 contributors:
   - mkaur
-  - makolomi
 ---
 
 # Use the wrap wizard to build your mobile app
 
-Use the wrap feature to package one or more canvas app(s) as a single native mobile app package using the step-by-step wizard.
+Use the wrap feature to package one or more canvas apps as a single native mobile app package using the step-by-step wizard.
 
 The wrap feature in Power Apps lets you create native mobile versions of your [canvas apps](../../canvas-apps/getting-started.md) as custom-branded Android and iOS mobile apps. 
 You can distribute such *wrapped* native mobile apps to the end users through [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), [Microsoft app center](https://visualstudio.microsoft.com/app-center/), [Google Play](https://support.google.com/googleplay/work/answer/6138458) or [Apple Business Manager](https://developer.apple.com/custom-apps/) or other native distribution methods.
@@ -90,7 +89,7 @@ More information: [Add an app to a solution](../../canvas-apps/add-app-solution.
 2. Under **Target platforms(s)**, select all the mobile platforms that your end users use on their mobile devices.
 
 3. Set the **Sign my app** toggle to **ON** to automatically code sign your mobile app, then select the **Azure Key Vault URI** from the list and click **Next**. 
-If you don't have any entries in **Azure Key Vault URI** list, you need to create **Azure Key Vault** first. More information: [Create Azure key valut for wrap for Power Apps](create-key-vault-for-code-signing.md).
+If you don't have any entries in **Azure Key Vault URI** list, you need to create **Azure Key Vault** first. More information: [Create Azure Key Vault for wrap for Power Apps](create-key-vault-for-code-signing.md).
 
      > [!div class="mx-imgBorder"] 
      > ![Choose the apps which you want to wrap.](media/how-to-v2/select-target-platforms.png "Select target platforms")
@@ -123,7 +122,7 @@ You can also code sign your mobile app package manually instead of using automat
 
 ### Step 4: Register app
 
-On the **Register your app** screen, register your application in Azure to establish a trust relationship between your app and the Microsoft identity platform. Your app must be registered in Azure Active Directory so that your app users can sign in. 
+On the **Register your app** screen, register your application in Azure to establish a trust relationship between your app and the Microsoft identity platform. Your app must be registered in Microsoft Entra so that your app users can sign in. 
 
 #### New app registration
 
@@ -134,7 +133,7 @@ Select **New app registration** to create a new registration for your app automa
 
 You can also create a **new app registration** manually. More information: [Registering your app on Azure portal manually](wrap-how-to.md#register-your-app-on-azure-portal-manually-optional).
 
-The wrap wizard configures all the required API permissions for your app automatically. You can also configure the API permissions manually if your need to stoubeshoot this step. More information: [Configure the API permissions for your app manually](wrap-how-to.md#configure-the-api-permissions-for-your-app-manually-optional).
+The wrap wizard configures all the required API permissions for your app automatically. You can also configure the API permissions manually if your need to troubleshoot this step. More information: [Configure the API permissions for your app manually](wrap-how-to.md#configure-the-api-permissions-for-your-app-manually-optional).
 
 ### Step 5: Manage output
 
@@ -166,9 +165,9 @@ You can automatically create your app registration in the wrap wizard as mention
 > [!NOTE]
 > Both single tenant and multitenant customers can use wrap to create native mobile apps based on their Power Apps canvas apps.
 
-Whether you're a single or multitenant maker, you must select any of the options containing **Any Azure AD directory - Multitenant** when choosing the supported account type for your app to enable it for wrap. Choose one of the following account types:
- - Accounts in any organizational directory (Any Azure AD directory - Multitenant)
- - Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts such as Skype or Xbox.
+Whether you're a single or multitenant maker, you must select any of the options containing **Any Microsoft Entra directory - Multitenant** when choosing the supported account type for your app to enable it for wrap. Choose one of the following account types:
+ - Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant)
+ - Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts such as Skype or Xbox.
 
 :::image type="content" source="media/wrap-intro/AppResgistration_AccountTypes.png" alt-text="App registration - supported account types for wrap.":::
 
@@ -195,15 +194,19 @@ The following API permissions are required when manually configure API permissio
 
 > [!NOTE]
 > If you don't find the permissions under **APIs my organization uses**, run the following PowerShell commands as appropriate, and try again:
+> - Ensure the module [Microsoft Graph](https://www.powershellgallery.com/packages/Microsoft.Graph/) is available or install it using the following command:
+>     ```powershell
+>     Install-Module -Name Microsoft.Graph
+>     ```
 > - Missing *Azure API Connections* permission: 
 >     ```powershell
->     Connect-AzureAD -TenantId <your tenant ID>
->     New-AzureADServicePrincipal -AppId fe053c5f-3692-4f14-aef2-ee34fc081cae -DisplayName "Azure API Connections"
+>     Connect-MgGraph -TenantId <your tenant ID>
+>     New-MgServicePrincipal -AppId fe053c5f-3692-4f14-aef2-ee34fc081cae -DisplayName "Azure API Connections"
 >     ```
 > - Missing *PowerApps Service* permission:
 >     ```powershell
->     Connect-AzureAD -TenantId <your tenant ID>
->     New-AzureADServicePrincipal -AppId 475226c6-020e-4fb2-8a90-7a972cbfc1d4 -DisplayName "PowerApps Service"
+>     Connect-MgGraph -TenantId <your tenant ID>
+>     New-MgServicePrincipal -AppId 475226c6-020e-4fb2-8a90-7a972cbfc1d4 -DisplayName "PowerApps Service"
 >     ```
 
 For detailed steps, refer to [Request the permissions in the app registration portal](/azure/active-directory/develop/v2-permissions-and-consent#request-the-permissions-in-the-app-registration-portal).
@@ -236,7 +239,7 @@ You have an option to automatically create a new **app center location** to stor
 
 1. Select **Add new app**.
 
-1. Copy the app's app center URL that you need later when your configure the wrap project inside Power Apps.
+1. Copy the app's app center URL. You'll need it later, to configure the wrap project in Power Apps.
 
     For example, `https://appcenter.ms/orgs/Contoso-sales/apps/Sample-canvas-app-for-Android-OS/`
 
@@ -258,5 +261,5 @@ You can automatically sign your mobile app package during wrap process in **Step
 - [Code sign for iOS](code-sign-ios.md)
 - [Code sign for Android](code-sign-android.md)
 - [Code sign for Google Play Store](https://developer.android.com/studio/publish/app-signing)
-- [Create your Azure key vault for automated code signing](create-key-vault-for-code-signing.md)
+- [Create your Azure Key Vault for automated code signing](create-Key-Vault-for-code-signing.md)
 - [Frequently asked questions for wrap](faq.yml)

@@ -1,15 +1,12 @@
 ---
-title: "Column data types in Microsoft Dataverse (contains video) | MicrosoftDocs"
+title: "Column data types in Microsoft Dataverse | MicrosoftDocs"
 description: "Understand the different column data types available for your app"
-keywords: ""
-ms.date: 03/02/2023
-ms.custom: 
+ms.date: 11/12/2024
 ms.topic: article
 author: "Mattp123"
-ms.assetid: 734b4ffa-5543-4f88-8517-299589f433f7
 ms.subservice: dataverse-maker
 ms.author: matp
-ms.reviewer: 
+ms.reviewer: matp
 search.audienceType: 
   - maker
 ---
@@ -24,7 +21,7 @@ The following table includes the corresponding `AttributeTypeDisplayName` API ty
 
 |Power Apps data type |Solution Explorer type| API type|
 |--|--|--|
-|**Big Integer**|**Time Stamp**|`BigIntType`|
+|**Big**|**Time Stamp**|`BigIntType`|
 |**Choice**|**Option Set**|`PicklistType`|
 |**Choices**|**MultiSelect Field**|`MultiSelectPicklistType`|
 |**Currency**|**Currency**|`MoneyType`|
@@ -127,10 +124,7 @@ Use decimals when you need to provide reports that require very accurate calcula
   
 Use floating point numbers when you store data that represents fractions or values that you'll typically query comparing to another value using greater than or less than operators. In most cases, the difference between decimal and float isn't noticeable. Unless you require the most accurate possible calculations, floating point numbers should work for you.  
 
-Big Integers (or BigInt) are large numbers with a max value of 9,223,372,036,854,775,807. It's used to store very large numbers that exceed the capabilities of Whole Number and Decimal.  Some uses for this include storage of time stamp values and as unique IDs, as well as numbers larger than 100 billion.
-
-> [!NOTE]
-> BigInt is currently only available for use through API. This includes column creation, data creation, and data management.
+Big integers (Big or BigInt) are large numbers with a max value of 9,223,372,036,854,775,807. It's used to store very large numbers that exceed the capabilities of Whole Number and Decimal. Some uses for this include storage of time stamp values and as unique IDs, as well as numbers larger than 100 billion.
 
 ## Using currency columns
 
@@ -172,19 +166,18 @@ However, you should be aware that not every lookup behaves this way. There are s
 
 ## Image columns
 
-Use image columns to display a single image per row in the application. Each table can have one image column. You can add an image column to custom tables but not to standard tables. Some standard tables have image columns defined.
-  
-Even though a table has an image column, displaying that image in a model-driven app requires that you enable two settings. 
+Use image columns to display images in your applications. Image columns are optimized for storing binary data. Dataverse doesn't save this data in the relational data store, which improves performance and reduces the capacity usage. [Learn more about storage capacity](/power-platform/admin/whats-new-storage)
+
+Each table can have one *primary image* column. With model-driven apps, you can display this image in the upper right corner of the form. Even though a table has an image column, displaying that image in a model-driven app requires that you enable two settings.
+
 - The standard table definition **Primary Image** property value must be set to **Default Image**. Custom tables require a custom image column. Then, you can select that image column for the **Primary Image** value in the custom table definition.  
-- The table form where the image is to be displayed must have the **Show image in the form** property enabled.  
+- The table form where the image is to be displayed must have the **Show image in the form** property enabled.
   
-People choose the image to upload a picture from their computer. Images must be less than 10 MB and must be in one of the following formats:  
+People choose the image to upload a picture from their computer. Images must be less than 30 MB and must be in one of the following formats:  
   
 - jpg
 - jpeg
 - gif
-- tif
-- tiff
 - bmp
 - png
   
@@ -194,6 +187,8 @@ When an image is uploaded, it will be resized as a "thumbnail" image to a maximu
 
 > [!NOTE]
 > Image columns don't work with business process flows, business rules, charts, rollup columns, or calculated columns.
+
+[Learn to work with Image column definitions using code](../../developer/data-platform/image-attributes.md)
 
 ### Create an image column and add it to a form
 
@@ -229,17 +224,21 @@ More information for developers working with image data:
 
 ## File columns
 
-The **File** column is used for storing binary data. The primary intended use of this column is to store a single image, note, or attachment. However, storage of other forms of binary data is also possible. One or more columns of this data type can be added to an existing standard customizable table or a custom table.
+The **File** column is used for storing binary data. File columns are optimized for storing binary data. Dataverse doesn't save this data in the relational data store, which improves performance and reduces the capacity usage. [Learn more about storage capacity](/power-platform/admin/whats-new-storage)
 
-The default **Maximum file size** is 32 MB and the largest size you can set is 131,072 KB (131 MB). The file size limit can be set individually for each column of file type added to a table. 
+The primary intended use of this column is to store a single image, note, or attachment. However, storage of other forms of binary data is also possible. One or more columns of this data type can be added to an existing standard customizable table or a custom table.
+
+The default **Maximum file size** is 32 MB and the largest size you can set using the designer is 131,072 KB (131 MB). The file size limit can be set individually for each column of file type added to a table. 
 
 >[!NOTE]
 > - Once the maximum file size has been saved, it can't be changed.
 > - File columns don't work with business process flows, business rules, charts, rollup columns, or calculated columns.
+> - Required field validation doesn't work with file columns.
+> - In model-driven apps, deleting or uploading a file on a form happens immediately, not on form save. Discarding changes when navigating away doesn't bring back the file if it's deleted.
 
 To create a file column, on the left pane in Power Apps select **Solutions**, open the solution you want, open the table you want, select the **Columns** area, select **Add Column**, and then in the **Column properties** pane, select **File** as the **Data type**. 
 
-More information for developers working with file data: [File attributes](../../developer/data-platform/file-attributes.md)
+[Learn to work with file column definitions using code](../../developer/data-platform/file-attributes.md)
 
 ## Fx Formula columns
 
@@ -253,7 +252,6 @@ Most columns have options to enable searching or sorting of the column's content
 
 Almost every column data type is created with the **Searchable** value enabled. This can be disabled at the time of creation, or later after the column is created. The following data types can't be search enabled:
 
-- File. Files are stored and retrieved using reference URLS and because of this they can't be searched.
 - Formulas. Formulas are used to create a dynamically calculated output and because of this can't be searched.
 - Image. Images are stored and retrieved using reference URLS and because of this they can't be searched.
 - Multivalue lookup (PartyList). Some system lookup columns can contain multiple values. For example, the **To** lookup column of **Email** rows can contain multiple recipients. Searching multivalue lookup columns isn't supported.

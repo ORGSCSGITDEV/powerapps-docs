@@ -27,6 +27,10 @@ In this quickstart, we use a canvas app called Kudos to explore concepts of syst
 - You must have access to the [Azure portal](https://portal.azure.com).
 - You must have the permissions to [create Azure resources](/azure/role-based-access-control/quickstart-assign-role-user-portal).
 
+> [!NOTE]
+> To view telemetry information, your tenant admin must enable **Canvas app insights**. Sign in as an admin in [Power Platform admin center](https://admin.powerplatform.microsoft.com/). Go to **Settings** > **Tenant settings** > **Canvas app insights**. In the **Canvas app insights** pane, set the toggle to **On** and save your changes.
+> Fore more information, see [Tenant settings](/power-platform/admin/tenant-settings).
+
 ### Optional
 
 - Download and install the Kudos app from the [Employee Experience Starter Kit](https://powerapps.microsoft.com/blog/powerapps-employee-experience-starter-kit). You can also use an existing app instead.
@@ -182,7 +186,7 @@ Now create a new component in your app to collect feedback on each screen, and w
 
 1. Select **FrownIcon**, select the **OnSelect** property, and then enter the following expression in the formula bar:
 
-    ```powerapps-dot
+    ```power-fx
     Trace(
        "App Feedback",
        TraceSeverity.Information,
@@ -203,7 +207,7 @@ Now create a new component in your app to collect feedback on each screen, and w
 
 1. Select **SmileIcon**, select the **OnSelect** property, and then enter the following expression in the formula bar:
     
-    ```powerapps-dot
+    ```power-fx
     Trace(
        "App Feedback",
        TraceSeverity.Information,

@@ -1,15 +1,15 @@
 ---
 title: "Merge duplicate records| MicrosoftDocs"
 description: How to merge duplicate records
-author: sericks
+author: smurkute
 
 ms.component: pa-user
 ms.topic: conceptual
-ms.date: 04/07/2023
+ms.date: 11/27/2023
 ms.subservice: end-user
-ms.author: sericks
+ms.author: smurkute
 ms.custom: ""
-ms.reviewer: sericks
+ms.reviewer: smurkute
 ms.assetid: 
 search.audienceType: 
   - enduser
@@ -75,7 +75,8 @@ Dataverse includes duplicate detection rules for accounts and contacts. These ru
 >   - The control is **Quick Form Collection Control** or **Reference Panel Quick Form Collection Control**.
 >   - The column is `Choice` or `MultiSelectPickList` and it has either a parent choice or child choice column.
 >   - The column is `parentaccountid` on the Account table; this is a system setting and cannot be changed. 
->   - The column is `parentcustomerid` on the  Contact Table; this is a system setting and cannot be changed
+>   - The column is `parentcustomerid` on the  Contact Table; this is a system setting and cannot be changed.
+>   - The column is of type `Owner` (example: `ownerid`).
 
 
 

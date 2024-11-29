@@ -2,8 +2,8 @@
 title: "Create and update table relationships using the Web API (Microsoft Dataverse) | Microsoft Docs"
 description: "Learn about creating and updating table relationships using the Web API"
 ms.date: 04/06/2022
-author: NHelgren
-ms.author: nhelgren
+author: mkannapiran
+ms.author: kamanick
 ms.reviewer: jdaly
 search.audienceType: 
   - developer
@@ -241,7 +241,7 @@ To delete a relationship using the Web API, use the HTTP DELETE method with the 
 [Query table definitions using the Web API](query-metadata-web-api.md)  
 [Retrieve table definitions by name or MetadataId](retrieve-metadata-name-metadataid.md)  
 [Model tables and columns using the Web API](create-update-entity-definitions-using-web-api.md)  
-[Web API Metadata Operations Sample](web-api-metadata-operations-sample.md)  
-[Web API Metadata Operations Sample (C#)](samples/webapiservice-metadata-operations.md)
+[Web API table schema operations sample](web-api-metadata-operations-sample.md)  
+[Web API table schema operations sample (C#)](samples/webapiservice-metadata-operations.md)
 
 [!INCLUDE[footer-include](../../../includes/footer-banner.md)]

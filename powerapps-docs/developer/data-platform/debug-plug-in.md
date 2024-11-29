@@ -4,9 +4,9 @@ description: "Learn how to debug plug-ins using the Plug-in Registration tool." 
 ms.date: 05/10/2022
 ms.reviewer: "pehecke"
 ms.topic: "article"
-author: "divkamath" # GitHub ID
+author: MicroSri
 ms.subservice: dataverse-developer
-ms.author: "jdaly" # MSFT alias of Microsoft employees only
+ms.author: sriknair
 search.audienceType: 
   - developer
 contributors:
@@ -76,7 +76,7 @@ The JSON results will be returned to your browser like so:
 ```
 
 > [!TIP]
-> This works best if you install a browser plug-in that will format the returned JSON. Or you may want to use Postman. More information: [Use Postman with Web API](/dynamics365/customer-engagement/developer/webapi/use-postman-web-api)
+> This works best if you install a browser plug-in that will format the returned JSON. Or you may want to use an API client like Postman or [Insomnia](webapi/insomnia.md), or you may want to use [VS Code with PowerShell](webapi/quick-start-ps.md).
 > 
 > You may prefer to use the [XrmToolbox Plugin Trace Viewer](https://www.xrmtoolbox.com/plugins/Cinteros.XrmToolBox.PluginTraceViewer/). This community tool is not supported by Microsoft. If you have questions pertaining to this tool, contact the publisher.
 

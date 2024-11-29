@@ -4,8 +4,8 @@ description: "Learn how to update and delete table rows using the SDK for .NET."
 ms.date: 07/22/2023
 ms.reviewer: pehecke
 ms.topic: article
-author: divkamath # GitHub ID
-ms.author: dikamath # MSFT alias of Microsoft employees only
+author: MicroSri
+ms.author: sriknair
 search.audienceType: 
   - developer
 contributors:
@@ -44,7 +44,7 @@ Use the [Entity.Id property](xref:Microsoft.Xrm.Sdk.Entity.Id) to transfer the u
 
 #### [Late-bound](#tab/late)
 
-The following example shows using the [Entity class](xref:Microsoft.Xrm.Sdk.Entity] to create an account using the  [IOrganizationService.Update method](xref:Microsoft.Xrm.Sdk.IOrganizationService.Update%2A).
+The following example shows using the [Entity class](xref:Microsoft.Xrm.Sdk.Entity) to create an account using the  [IOrganizationService.Update method](xref:Microsoft.Xrm.Sdk.IOrganizationService.Update%2A).
 
 ```csharp
 var retrievedAccount = new Entity("account", new Guid("a976763a-ba1c-e811-a954-000d3af451d6"));
@@ -124,9 +124,9 @@ You must use the [UpdateRequest class](xref:Microsoft.Xrm.Sdk.Messages.UpdateReq
 You must also use the <xref:Microsoft.Xrm.Sdk.Messages.UpdateRequest> class if you want to specify an optimistic concurrency behavior. More information: [Optimistic concurrency behavior](#optimistic-concurrency-behavior)
 
 
-## Use the UpdateMultipleRequest class (Preview)
+## Use the UpdateMultipleRequest class
 
-he [UpdateMultipleRequest class](xref:Microsoft.Xrm.Sdk.Messages.UpdateMultipleRequest) is the most performant way to update multiple records in a single request. More information: [Bulk Operation messages (preview)](../bulk-operations.md)
+The [UpdateMultipleRequest class](xref:Microsoft.Xrm.Sdk.Messages.UpdateMultipleRequest) is the most performant way to update multiple records in a single request. More information: [Bulk Operation messages](../bulk-operations.md)
 
 ## Update related entities in one operation
 

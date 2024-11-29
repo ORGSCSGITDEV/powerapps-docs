@@ -865,7 +865,7 @@ The following are the parameters for defining a Teams chat action on the app not
 |Parameter | Data type | Description |
 |----------|-----------|-------------|
 |`chatId`    |String     |Define a value for the chat ID to open an existing chat. This is the ID of the Teams chat session, which can be obtained from the **id** property of the **chat** entity in Microsoft Graph. More information: [Get chat](/graph/api/chat-get) for more information. For Teams chat sessions that have been linked to Dynamics 365 records, the association is stored in the **Microsoft Teams chat association entity (msdyn_teamschatassociation)** table in Dataverse. The ID for the chat session is stored in the **Teams Chat Id** property of this table.<br><br> Leave this parameter blank to initiate a new chat session. |
-|`memberIds` |GUID[]|An array of the Microsoft Azure Active Directory (AAD) user ID values of each of the participants that to be included in a new chat session. Member ID values shouldn't be defined if a value has been defined for the **chatId** parameter. If the **chatId** has been defined, then the existing chat is opened, and the members of the existing chat are included in the chat when opened. |
+|`memberIds` |GUID[]|An array of the Microsoft Entra ID user ID values of each of the participants that to be included in a new chat session. Member ID values shouldn't be defined if a value has been defined for the **chatId** parameter. If the **chatId** has been defined, then the existing chat is opened, and the members of the existing chat are included in the chat when opened. |
 |`entityContext` | Expando |The entity context provides the Dynamics 365 record to which the chat session should be linked. For example, if the chat session is regarding a specific customer account record, define the account record in this parameter to have the chat session linked to the account and display in the account's timeline. <br><br>The entity context includes the **entityName** and **recordId** parameters, which must be defined to identify the record for the entity context.<br><br> An entity context shouldn't be defined if a value has been defined for the **chatId** parameter. If the **chatId** has been defined, then the existing chat is opened, and the `entityContext`, whether linked or unlinked, will already have been defined for the existing chat. If the action is creating a new chat session (that is, the **chatId** parameter hasn't been provided), and the entity context isn't defined, then the new chat session won't be linked to a Dynamics 365 record. |
 |`entityName` | String | Part of the entity context, the logical name of the Dataverse table for the record to which the chat is related to. |
 |`recordId` | GUID | Part of the entity context, this is the ID property of the table defined in the **entityName** parameter for the record to which the chat will be linked. |
@@ -894,7 +894,7 @@ var SendAppNotificationRequest = new Example.SendAppNotificationRequest(title = 
                     "@odata.type": "#Microsoft.Dynamics.CRM.expando",
                     "type": "teamsChat",
                     "memberIds@odata.type": "#Collection(String)",
-                    "memberIds": ["<AAD User ID 1>", "<AAD User ID 2>"],
+                    "memberIds": ["<Microsoft Entra ID User ID 1>", "<Microsoft Entra ID User ID 2>"],
                     "entityContext": {
                         "@odata.type": "#Microsoft.Dynamics.CRM.expando",
                         "entityName": "account",
@@ -946,7 +946,7 @@ Accept: application/json
                 "@odata.type":"#Microsoft.Dynamics.CRM.expando",
                 "type": "teamsChat",
                 "memberIds@odata.type": "#Collection(String)",
-                "memberIds": ["<AAD user ID 1>","<AAD user ID 2>"],
+                "memberIds": ["<Microsoft Entra ID user ID 1>","<Microsoft Entra ID user ID 2>"],
                 "entityContext": {
                   "@odata.type": "#Microsoft.Dynamics.CRM.expando",
                   "entityName": "account",
@@ -1114,17 +1114,20 @@ For more examples of client scripting using client API, see [Walkthrough: Write 
 
 The in-app notification feature uses three tables. A user needs to have the correct security roles to receive notifications and to send notifications to themselves or other users.  
 
-In addition to the appropriate table permissions, a user must be assigned the **Send In-App Notification** `prvSendAppNotification` privilege to execute the `SendAppNotification` message. The privilege is granted to the **Environment Maker** role by default. This privilege is required for sending in-app notifications. It isn't required to receive notifications.
+In addition to the appropriate table permissions, a user must be assigned the **Send In-App Notification** `prvSendAppNotification` privilege to execute the `SendAppNotification` message. The privilege is granted to the **Environment Maker** role by default. It isn't required for sending in-app notifications by directly creating `appnotification` entity records without executing the `SendAppNotification` message. It isn't required to receive notifications.
 
 |Usage|Required table privileges|
 |------------|----------------|
-|User has no in-app notification bell and receives no in-app notification |None: Read privilege on the app notification table. |
+|User has no in-app notification bell and receives no in-app notification |None |
 |User can receive in-app notifications|<ul><li>Basic: Read privilege on the app notification table.</li><li>Create, Read, Write, and Append privileges on the model-driven app user setting.</li><li>Read and AppendTo privileges on setting definition.</li></ul> |
-|User can send in-app notifications to self |Basic: Create and Read privileges on the app notification table, and Send In-App Notification privilege. |
-|User can send in-app notifications to others |Read privilege with Local, Deep, or Global access level on the app notification table based on the receiving user's business unit, and Send In-App Notification privilege. |
-| User can delete in-app notifications | Global: Delete privileges on the app notification table. |
+|User can send in-app notifications to self |Basic: Create privilege on the app notification table. Additionally, Send In-App Notification privilege is needed if using `SendAppNotification` message. |
+|User can send in-app notifications to others |Create privilege with Local, Deep, or Global access level on the app notification table based on the receiving user's business unit. Additionally, Send In-App Notification privilege is needed if using `SendAppNotification` message. |
+|User can delete in-app notifications |Global: Delete privileges on the app notification table. |
 
+The Send In-App Notification privilege can be added to a role using the Role Privilege Picker under the `Miscellaneous privileges` tab.
 
+> [!div class="mx-imgBorder"] 
+> ![Assigning Send In-App Notification privilege.](media/sendinappnotificationprivilegepicker.png "Assigning Send In-App Notification privilege")
 
 ## Notification storage
 

@@ -1,18 +1,17 @@
 ---
 title: Code sign for Android
 description: Learn about how to code sign for Android for Power Apps wrap.
-author: larryk78
+author: komala2019
 ms.topic: article
 ms.custom: canvas
-ms.reviewer: mkaur
+ms.reviewer: smurkute
 ms.date: 06/06/2022
 ms.subservice: canvas-maker
-ms.author: mkaur
+ms.author: koagarwa
 search.audienceType: 
   - maker
 contributors:
   - mduelae
-  - larryk78
 ---
 
 # Code sign for Android 
@@ -54,7 +53,7 @@ Example:
 
 
 
-- If preparing Keyvault, PATH_TO_KEYSTORE should have .pfx extension.
+- If preparing Key Vault, PATH_TO_KEYSTORE should have .pfx extension.
 
   `keytool -genkey -alias powerappswrap -keyalg RSA -keystore powerappswrap.pfx -keysize 2048 -validity 10000`
 

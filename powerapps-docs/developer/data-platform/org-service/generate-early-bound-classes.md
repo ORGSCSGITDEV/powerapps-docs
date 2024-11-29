@@ -1,9 +1,9 @@
 ---
 title: "Generate early-bound classes for the SDK for .NET"
 description: "Learn how to use the Power Platform CLI pac modelbuilder build command to generate early-bound classes for use with the Microsoft Dataverse SDK for .NET. This tool generates early-bound .NET classes that represent the Entity Data Model used by Dataverse."
-ms.date: 09/28/2023
-author: kkanakas
-ms.author: kartikka
+ms.date: 01/26/2024
+author: MicroSri
+ms.author: sriknair
 ms.reviewer: pehecke
 ms.topic: article
 search.audienceType: 
@@ -63,8 +63,7 @@ Use the following steps to get started:
    "entitynamesfilter-comment": "Filters the list of entities are retrieved when reading data from Dataverse.",
    "entityNamesFilter": [
       "account",
-      "contact",
-      "sample_*"
+      "contact"
    ],
    "entitytypesfolder-comment": "Folder name that contains entities.",
    "entityTypesFolder": "Entities",
@@ -149,7 +148,9 @@ Generation Complete - 00:00:01.815
 PS C:\projects\exampleproject\model>
 ```
 
-When you inspect the output, notice that it only generates classes for the tables specified by `entityNamesFilter` and only the messages specified in the `messageNamesFilter`. You should specify which tables (entities) and messages you use in your project. Otherwise, classes for all tables and messages are generated. You can use `*` as a wildcard character in these values. This is useful when items in your solution share a common customization prefix.
+When you inspect the output, notice that it only generates classes for the tables specified by `entityNamesFilter` and only the messages specified in the `messageNamesFilter`. You should specify which tables (entities) and messages you use in your project. Otherwise, classes for all tables and messages are generated.
+
+For `messageNamesFilter`, you can use `*` as a wildcard character in these values. This is useful when messages in your solution share a common customization prefix.
 
 `pac modelbuilder build` writes the files into folders with names you can control in the settings file:
 
@@ -157,6 +158,9 @@ When you inspect the output, notice that it only generates classes for the table
 - Message classes are written to the folder specified by the `messagesTypesFolder` setting.
 - The [OrganizationServiceContext](xref:Microsoft.Xrm.Sdk.Client.OrganizationServiceContext) class is written to a file with the name specified by the `serviceContextName` setting.
 - All the classes are part of the namespace you set in the `namespace` setting.
+
+> [!NOTE]
+> If you are generating message classes, you should always include a name for the `serviceContextName` setting. See [Include `serviceContextName` when generating message classes](#include-servicecontextname-when-generating-message-classes)
 
 This is how the files and folders appear in Visual Studio:
 
@@ -177,7 +181,7 @@ Here's an example showing how to generate files with the same settings as the ex
 ```powershell
 PS C:\>pac modelbuilder build `
    --outdirectory C:\projects\exampleproject\model `
-   --entitynamesfilter 'account;contact;sample_*' `
+   --entitynamesfilter 'account;contact' `
    --generatesdkmessages `
    --messagenamesfilter 'searchautocomplete;searchquery;sample_*' `
    --namespace ExampleProject `
@@ -204,8 +208,7 @@ This doesn't include all the settings because it uses the default options. If yo
   "optionSetsTypesFolder": "OptionSets",
   "entityNamesFilter": [
     "account",
-    "contact",
-    "sample_*"
+    "contact"
   ],
   "messageNamesFilter": [
     "searchautocomplete",
@@ -217,25 +220,37 @@ This doesn't include all the settings because it uses the default options. If yo
 }
 ```
 
+## Include `serviceContextName` when generating message classes
+
+If you are generating message classes, should always include a name for the `serviceContextName` parameter so that an [OrganizationServiceContext](xref:Microsoft.Xrm.Sdk.Client.OrganizationServiceContext) class will be generated with your code.
+This class includes an important property to enable use of generated message classes. If you don't include an `OrganizationServiceContext`, you will get the following error when you try to use the generated message classes.
+
+```
+The formatter threw an exception while trying to deserialize the message: 
+There was an error while trying to deserialize parameter http://schemas.microsoft.com/xrm/2011/Contracts/Services:request. 
+The InnerException message was 'Error in line 1 position 700. Element 'http://schemas.microsoft.com/xrm/2011/Contracts/Services:request' contains data from a type that maps to the name 'http://schemas.microsoft.com/xrm/2011/new/:<your generated class name>'. 
+The deserializer has no knowledge of any type that maps to this name. 
+Consider changing the implementation of the ResolveName method on your DataContractResolver to return a non-null value for name '<your generated class name>' and namespace 'http://schemas.microsoft.com/xrm/2011/new/'.'.  
+Please see InnerException for more details.
+```
+
 ## Community tools
 
 The [Early Bound Generator V2](https://www.xrmtoolbox.com/plugins/DLaB.Xrm.EarlyBoundGeneratorV2/) is an XrmToolBox plug-in created by the community to provide a user interface and many other configurations to generating early-bound types.
 > [!NOTE]
-> The community tools are not a product of Microsoft and does not extend support to the community tools. 
+> The community tools are not a product of Microsoft and does not extend support to the community tools.
 > If you have questions pertaining to the tool, please contact the publisher. More Information: [XrmToolBox](https://www.xrmtoolbox.com).
-
 
 ## For Dynamics 365 Customer Engagement on-premises
 
 The Power Platform CLI isn't available for Dynamics 365 Customer Engagement on-premises. You need to use the `CrmSvcUtil.exe` code generation tool to generate early bound classes. [Learn how to use the CrmSvcUtil.exe to generate early-bound classes for the SDK for .NET](/dynamics365/customerengagement/on-premises/developer/org-service/create-early-bound-entity-classes-code-generation-tool)
 
-
 ### Related articles
 
-[Late-bound and early-bound programming](early-bound-programming.md)   
-[Sample: Early-bound table operations](samples/early-bound-entity-operations.md)   
-[Developer tools and resources](../developer-tools.md)   
-[Dataverse development tools](../download-tools-NuGet.md)   
+[Late-bound and early-bound programming](early-bound-programming.md)
+[Sample: Early-bound table operations](samples/early-bound-entity-operations.md)
+[Developer tools and resources](../developer-tools.md)
+[Dataverse development tools](../download-tools-NuGet.md)
 [Learn how to use the CrmSvcUtil.exe to generate early-bound classes for the SDK for .NET](/dynamics365/customerengagement/on-premises/developer/org-service/create-early-bound-entity-classes-code-generation-tool)
 
 [!INCLUDE[footer-include](../../../includes/footer-banner.md)]

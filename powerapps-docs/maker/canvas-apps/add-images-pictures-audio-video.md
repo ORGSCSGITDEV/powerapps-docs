@@ -1,5 +1,5 @@
 ---
-title: Using multimedia files in canvas apps (contains video)
+title: Using multimedia files in canvas apps
 description: Show multimedia files in a canvas app, and upload them to a data source.
 author: emcoope-msft
 
@@ -34,6 +34,11 @@ Watch this video to learn how to use multimedia files in canvas apps:
 You can choose the kind of media file to add (for example, images, video, or audio). You can add images using the media pane, or using the images control.
 
 ![Media pane.](./media/add-images-pictures-audio-video/media-pane.gif "Media pane")
+
+> [!NOTE]
+> When adding media files by URL,
+> - Use HTTPS to ensure compatibility with modern browsers.
+> - Ensure the URL is accessible anonymously without any authentication. Try to enter the URL in private browsing mode to verify that it's accessible without signing in.
 
 ### Add images, audio, or video using the media pane
 

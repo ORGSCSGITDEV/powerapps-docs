@@ -2,7 +2,7 @@
 title: "Edit table records directly from another table’s main form | MicrosoftDocs"
 description: Learn how to design a main form that can be used to edit a related table record.
 ms.custom: ""
-ms.date: 02/28/2023
+ms.date: 10/07/2024
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -31,7 +31,7 @@ For example, here's the form component on an **existing tab** on the main accoun
 
 ## Add the form component to a table main form
 
-1. On the left navigation pane select **Components**. [!INCLUDE [left-navigation-pane](../../includes/left-navigation-pane.md)]
+1. On the left navigation pane, select **Components**. [!INCLUDE [left-navigation-pane](../../includes/left-navigation-pane.md)]
 1. Expand either **Input** or **Display**, and then select **Form**.
 On the form component control configuration page, select the properties for the control:  
    - Select the **Lookup column** for the form.
@@ -119,23 +119,29 @@ Note the following limitations when you add the form component control to a tabl
 
 - Forms with a business process flow aren’t currently supported in either the main table form or the related table form. If you have a form with a business process flow, you may encounter unexpected behavior.  We recommend that you don't use a form component with a form that uses a business process flow.
 
-- The form component control doesn't support embedded form component controls, such as adding a form component control to a form that is used by a form component control. 
+- The form component control doesn't support embedded form component controls, such as adding a form component control to a form that is used by a form component control.
+
+- The form component control doesn't support [embedded canvas apps](embed-canvas-app-in-form.md). You might encounter unexpected behavior with these canvas apps.
 
 - The form component control will only display the first tab of the form it uses if multiple tabs are included in that form.  
 
 - Using the same form for different form component controls on a single form isn't supported.
 
-- The form that you use with a form component must be included in your app. If it isn't, or if the current user doesn't have access to the form, it will fall back to the top-most main form that is included in the app and available to the user (based on form order). More information: [Add a component](add-edit-app-components.md#add-a-component).
+- The form that you use with a form component must be [included in your app](add-edit-app-components.md#add-a-component). If it isn't, or if the current user doesn't have access to the form, it will fall back to the top-most main form that is included in the app and available to the user (based on form order).
 
-- Form component controls have certain limitations when rendered in multi-session apps. If the client API is used to modify the form component control, or if data is entered on the form, the changes might not be persisted when switching multi-session tabs.
+- All components used by the form in a form component must be [included in your app](add-edit-app-components.md#add-a-component). These components include related tables, views, and business process flows. If they aren't, they won't be available in the form or there might be unexpected behavior.
 
-- You may notice that the timeline wall may not update when a column that is used to set the timeline wall has changed in the form component. When the page is refreshed the timeline wall will update as expected.
+- Form component controls have certain limitations when rendered in multi-session apps. Specifically, dynamically added handlers on the form component form such as `addOnSave` or `addOnChange` might not run after switching multisession tabs. 
+
+- You might notice that the timeline wall might not update when a column that is used to set the timeline wall has changed in the form component. When the page is refreshed the timeline wall will update as expected.
 
 - On mobile, the timeline control doesn't currently appear in the form component control.
 
 - For subgrids, the **See all records** and **See associated records** command buttons won't be available if they're rendered inside a form component.
 
 - Form component controls aren't supported in bulk edit dialogs. They won't appear in the form in the bulk edit dialog by default and any changes made to related table records with them won't be saved.
+
+- When duplicate records are detected when a form component control is saved, users might not be able to view the duplicates to resolve conflicts.
 
 ### See also
 

@@ -1,23 +1,23 @@
 ---
-title: "Search for tables and rows by using Dataverse search| MicrosoftDocs"
+title: "Search for records by using Dataverse search| MicrosoftDocs"
 description: How to use Dataverse search
-author: sericks007
+author: jasonHQX
+contributors: mgreen
 
 ms.component: pa-user
 ms.topic: conceptual
-ms.date: 12/16/2021
+ms.date: 11/18/2024
 ms.subservice: end-user
-ms.author: sericks
+ms.author: jasonhuang
 ms.custom: ""
-ms.reviewer: sericks
+ms.reviewer: smurkute
+ms.contributors: green.michael
 ms.assetid: 
 search.audienceType: 
   - enduser
 ---
 
-# Search for tables and rows by using Dataverse search
-
-
+# Search for records by using Dataverse search
 
 With Dataverse search, the search box is always available at the top of every page in your app. You can start a new search and quickly find the information that you're looking for. 
 
@@ -45,7 +45,10 @@ Legend
 
 ## Inline suggestions
 
-As you start entering text, you'll see suggested results that help minimize keystrokes and simplify page navigation. Suggested results are based on a search performed on the primary column of a table, which is enabled for Dataverse search and included in your model-driven app. Suggested results are sometimes also based on non-primary columns of tables enabled for Dataverse search, depending on your search usage pattern and the search usage pattern in the environment. For more information, see [Add or edit model-driven app components in the Power Apps app designer](../maker/model-driven-apps/add-edit-app-components.md#add-a-component).
+> [!NOTE]
+> If you're using custom analyzers for searching records, the records don't show in the inline suggestions.
+
+As you start entering text, you'll see suggested results that help minimize keystrokes and simplify page navigation. Suggested results are based on a search performed on all searchable columns of a table, which is enabled for Dataverse search and included in your model-driven app. For more information, see [Add or edit model-driven app components in the Power Apps app designer](../maker/model-driven-apps/add-edit-app-components.md#add-a-component).
 
 Suggestions are shown when three or more characters are entered in the search box, and are based on two types of matching:
 
@@ -68,6 +71,8 @@ Search results are ranked based on relevance and grouped by tables. The list of 
 
 To understand why a row appears in your search results, hover over the icon at the beginning of each row to see the text that matched your search.
 
+> [!NOTE]
+> Rows returned in the search grid can't be sorted.
 
 ![See the text that matched your search query.](media/relevance-search-matched-results.png "See the text that matched your search query")
 

@@ -1,19 +1,20 @@
 ---
 title: What is Dataverse search?
 description: Dataverse search for model-driven apps helps you quickly find what you're looking for. 
-author: sericks007
+author: shwetamurkute
 ms.component: pa-user
 ms.topic: conceptual
-ms.date: 06/21/2023
+ms.date: 11/01/2023
 ms.subservice: end-user
-ms.author: sericks
+ms.author: smurkute
 ms.custom: 
-ms.reviewer: sericks
+ms.reviewer: smurkute
 ms.assetid: 
 search.audienceType: 
   - enduser
 ms.contributors:
-- mspilde 
+- mspilde
+- JimDaly
 ---
 
 # What is Dataverse search?
@@ -40,6 +41,7 @@ Dataverse search for model-driven apps helps you quickly find what you're lookin
 
 [Search for tables and rows by using Dataverse search](relevance-search.md)<br/>
 [Configure facets and filters](facets-and-filters.md)<br/>
-[Frequently asked questions about Dataverse search](relevance-faq.md)
+[Frequently asked questions about Dataverse search](relevance-faq.md)<br />
+[Developer's guide: Search for Dataverse records using the API](../developer/data-platform/search/overview.md)
 
 [!INCLUDE[footer-include](../includes/footer-banner.md)]
